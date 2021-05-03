@@ -8,6 +8,9 @@ using System.IO;
 
 namespace ContactsApp
 {
+    /// <summary>
+    /// Класс менеджера проекта
+    /// </summary>
     public static class ProjectManager
     {
         /// <summary>

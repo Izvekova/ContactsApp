@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace ContactsApp
 {
+    /// <summary>
+    /// Класс логики проекта
+    /// </summary>
     public class Project
     {
         /// <summary>
