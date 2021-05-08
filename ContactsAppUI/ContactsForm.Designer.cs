@@ -31,6 +31,7 @@ namespace ContactsAppUI
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ContactsForm));
             this.SurnameBox = new System.Windows.Forms.TextBox();
             this.NameBox = new System.Windows.Forms.TextBox();
             this.BirthdayTimePicker = new System.Windows.Forms.DateTimePicker();
@@ -97,7 +98,7 @@ namespace ContactsAppUI
             this.vkBox.TabIndex = 5;
             this.vkBox.Text = "id";
             this.vkBox.TextChanged += new System.EventHandler(this.vkBox_TextChanged);
-            this.vkBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.vkBox_KeyPress);
+
             // 
             // label1
             // 
@@ -159,7 +160,7 @@ namespace ContactsAppUI
             this.OKbutton.Location = new System.Drawing.Point(219, 214);
             this.OKbutton.Name = "OKbutton";
             this.OKbutton.Size = new System.Drawing.Size(75, 23);
-            this.OKbutton.TabIndex = 12;
+            this.OKbutton.TabIndex = 6;
             this.OKbutton.Text = "ОК";
             this.OKbutton.UseVisualStyleBackColor = true;
             this.OKbutton.Click += new System.EventHandler(this.OKbutton_Click);
@@ -170,7 +171,7 @@ namespace ContactsAppUI
             this.CancelButton.Location = new System.Drawing.Point(300, 214);
             this.CancelButton.Name = "CancelButton";
             this.CancelButton.Size = new System.Drawing.Size(75, 23);
-            this.CancelButton.TabIndex = 13;
+            this.CancelButton.TabIndex = 7;
             this.CancelButton.Text = "Cancel";
             this.CancelButton.UseVisualStyleBackColor = true;
             this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
@@ -184,10 +185,10 @@ namespace ContactsAppUI
             this.PhoneBox.Name = "PhoneBox";
             this.PhoneBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.PhoneBox.Size = new System.Drawing.Size(286, 20);
-            this.PhoneBox.TabIndex = 14;
+            this.PhoneBox.TabIndex = 3;
             this.PhoneBox.Text = "7";
             this.PhoneBox.TextChanged += new System.EventHandler(this.PhoneBox_TextChanged);
-            this.PhoneBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PhoneBox_KeyPress);
+            
             // 
             // ContactsForm
             // 
@@ -208,6 +209,7 @@ namespace ContactsAppUI
             this.Controls.Add(this.BirthdayTimePicker);
             this.Controls.Add(this.NameBox);
             this.Controls.Add(this.SurnameBox);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ContactsForm";
             this.Text = "Add/Edit Contact";
             this.Load += new System.EventHandler(this.ContactsForm_Load);
@@ -216,7 +218,6 @@ namespace ContactsAppUI
 
         }
 
-       
 
         #endregion
 

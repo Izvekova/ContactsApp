@@ -28,7 +28,7 @@ namespace ContactsAppUI
         {
             InitializeComponent();
             BirthdayTimePicker.Value = DateTime.Now;
-            _project = ProjectManager.LoadFromFile(ProjectManager.PathToFile);
+            _project = ProjectManager.LoadFromFile(ProjectManager.path);
             foreach (var contact in _project.Contacts)
             {
                 ContactlistBox.Items.Add(contact.Surname);
@@ -58,7 +58,7 @@ namespace ContactsAppUI
                 var Contact = form.Contact;
                 _project.Contacts.Add(Contact);
                 ContactlistBox.Items.Add(Contact.Surname);
-                ProjectManager.SaveToFile(_project, ProjectManager.PathToFolder, ProjectManager.PathToFile);
+                ProjectManager.SaveToFile(_project, ProjectManager.path);
                 _displayedContacts.Add(Contact);
                 UpdateListBox();
                 SortListBox();
@@ -91,7 +91,7 @@ namespace ContactsAppUI
                     UpdateListBox();
                     SortListBox();
                 }
-                ProjectManager.SaveToFile(_project, ProjectManager.PathToFolder, ProjectManager.PathToFile);
+                ProjectManager.SaveToFile(_project, ProjectManager.path);
                 ContactsBirthdays();
                 if (_displayedContacts.Count == 0)
                 {
@@ -127,7 +127,7 @@ namespace ContactsAppUI
                     UpdateListBox();
                     SortListBox();
                 }
-                ProjectManager.SaveToFile(_project, ProjectManager.PathToFolder, ProjectManager.PathToFile);
+                ProjectManager.SaveToFile(_project, ProjectManager.path);
 
                 if (ContactlistBox.Items.Count > 0)
                 {
@@ -135,14 +135,14 @@ namespace ContactsAppUI
                 }
                 else
                 {
-                    ListBoxCountNull();
+                    ChangeSelectContact();
                 }
                 ContactsBirthdays();
             }
         }
 
         //Отображение данных на правой панели по умолчанию.  
-        private void ListBoxCountNull()
+        private void ChangeSelectContact()
         {
             SurnameBox.Text = "";
             NameBox.Text = "";
@@ -167,7 +167,7 @@ namespace ContactsAppUI
             }
             else
             {
-                ListBoxCountNull();
+                ChangeSelectContact();
             }
         }
 
@@ -206,6 +206,10 @@ namespace ContactsAppUI
 
         }
 
+
+        /// <summary>
+        /// Метод, обновляющий список
+        /// </summary>
         private void UpdateListBox()
         {
             MaxLengthElement();
@@ -229,6 +233,10 @@ namespace ContactsAppUI
             }
         }
 
+
+        /// <summary>
+        /// Последний выбранный контакт
+        /// </summary>
         private void LastSelectedContact()
         {
             var _sortContacts = _project.SortContacts(_project.Contacts);
@@ -242,12 +250,22 @@ namespace ContactsAppUI
             }
         }
 
+        /// <summary>
+        /// Закрытие формы
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             LastSelectedContact();
-            ProjectManager.SaveToFile(_project, ProjectManager.PathToFolder, ProjectManager.PathToFile);
+            ProjectManager.SaveToFile(_project, ProjectManager.path);
         }
 
+        /// <summary>
+        /// Изменённый текст 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SortTextBox_TextChanged(object sender, EventArgs e)
         {
             UpdateListBox();

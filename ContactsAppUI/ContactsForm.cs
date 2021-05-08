@@ -73,67 +73,21 @@ namespace ContactsAppUI
             }
         }
 
-        /// <summary>
-        /// Ограничения на вводимые символы в поле PhoneBox
-        /// </summary>
-        private void PhoneBox_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!(Char.IsDigit(e.KeyChar)) &&
-                (e.KeyChar != (char)Keys.Back) &&
-                (e.KeyChar != (char)Keys.Delete))
-            {
-                e.Handled = true;
-            }
-
-            if (PhoneBox.Text.Length == 1)
-            {
-                if (!Char.IsDigit(e.KeyChar))
-                {
-                    e.Handled = true;
-                }
-            }
-        }
-
-        /// <summary>
-        /// Ограничения на вводимые символы в поле vkBox
-        /// </summary>
-        private void vkBox_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!Char.IsDigit(e.KeyChar) &&
-                (e.KeyChar != (char)Keys.Back) &&
-                (e.KeyChar != (char)Keys.Delete) && (!Char.IsLetter(e.KeyChar)))
-            {
-                e.Handled = true;
-            }
-
-            if (vkBox.Text.Length == 2)
-            {
-                if (!Char.IsDigit(e.KeyChar) && (!Char.IsLetter(e.KeyChar)))
-                {
-                    e.Handled = true;
-                }
-            }
-        }
+     
 
         /// <summary>
         /// Изменение текстового поля vkBox при ошибке вводе
         /// </summary>
         private void vkBox_TextChanged(object sender, EventArgs e)
         {
-            if (vkBox.Text.Length > 0)
+            try
             {
-                if (vkBox.Text.Length > 17)
-                {
-                    vkBox.BackColor = Color.Salmon;
-                }
-                else
-                {
-                    vkBox.BackColor = Color.White;
-                }
-            }
-            else
-            {
+                _contact.IdVk = vkBox.Text;
                 vkBox.BackColor = Color.White;
+            }
+            catch (Exception)
+            {
+                vkBox.BackColor = Color.LightSalmon;
             }
         }
 
@@ -142,20 +96,14 @@ namespace ContactsAppUI
         /// </summary>
         private void SurnameBox_TextChanged(object sender, EventArgs e)
         {
-            if (SurnameBox.Text.Length > 0)
+            try
             {
-                if (SurnameBox.Text.Length > 50)
-                {
-                    SurnameBox.BackColor = Color.Salmon;
-                }
-                else
-                {
-                    SurnameBox.BackColor = Color.White;
-                }
-            }
-            else
-            {
+                _contact.Surname = SurnameBox.Text;
                 SurnameBox.BackColor = Color.White;
+            }
+            catch (Exception)
+            {
+                SurnameBox.BackColor = Color.LightSalmon;
             }
         }
 
@@ -164,20 +112,14 @@ namespace ContactsAppUI
         /// </summary>
         private void NameBox_TextChanged(object sender, EventArgs e)
         {
-            if (NameBox.Text.Length > 0)
+            try
             {
-                if (NameBox.Text.Length > 50)
-                {
-                    NameBox.BackColor = Color.Salmon;
-                }
-                else
-                {
-                    NameBox.BackColor = Color.White;
-                }
-            }
-            else
-            {
+                _contact.Name = NameBox.Text;
                 NameBox.BackColor = Color.White;
+            }
+            catch (Exception)
+            {
+                NameBox.BackColor = Color.LightSalmon;
             }
         }
 
@@ -186,20 +128,16 @@ namespace ContactsAppUI
         /// </summary>
         private void PhoneBox_TextChanged(object sender, EventArgs e)
         {
-            if (PhoneBox.Text.Length > 0)
+            long number;
+            try
             {
-                if ((PhoneBox.Text.Length > 11))
-                {
-                    PhoneBox.BackColor = Color.Salmon;
-                }
-                else
-                {
-                    PhoneBox.BackColor = Color.White;
-                }
-            }
-            else
-            {
+                long.TryParse(PhoneBox.Text, out number);
+                _contact.PhoneNumber.Number = number;
                 PhoneBox.BackColor = Color.White;
+            }
+            catch (Exception)
+            {
+                PhoneBox.BackColor = Color.LightSalmon;
             }
         }
 
@@ -208,13 +146,14 @@ namespace ContactsAppUI
         /// </summary>
         private void EmailBox_TextChanged(object sender, EventArgs e)
         {
-            if (EmailBox.Text.Length > 50)
+            try
             {
-                EmailBox.BackColor = Color.Salmon;
-            }
-            else
-            {
+                _contact.Email = EmailBox.Text;
                 EmailBox.BackColor = Color.White;
+            }
+            catch (Exception)
+            {
+                EmailBox.BackColor = Color.LightSalmon;
             }
         }
 
@@ -227,11 +166,11 @@ namespace ContactsAppUI
         {
             this.Close();
         }
+
         private void ContactsForm_Load(object sender, EventArgs e)
         {
-           
-        }
 
+        }
     }
 
 }
