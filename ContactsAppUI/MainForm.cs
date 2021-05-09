@@ -210,6 +210,7 @@ namespace ContactsAppUI
         /// <summary>
         /// Метод, обновляющий список
         /// </summary>
+        /// MaxLengthElement - если слово введённое в поиск меньше или равно наибольшей длине фамилии, то контакты отображаются в листбокс
         private void UpdateListBox()
         {
             MaxLengthElement();
@@ -278,6 +279,9 @@ namespace ContactsAppUI
             }
         }
 
+        /// <summary>
+        /// Метод, высчитывающий наибольшее количество букв из всех фамилий контактов
+        /// </summary>
         private void MaxLengthElement()
         {
             for (int i = 0; i < _project.Contacts.Count; i++)
