@@ -15,15 +15,17 @@ namespace ContactsApp
     public static class ProjectManager
     {
         /// <summary>
+        /// Путь до папки сохранения.
+        /// </summary>
+        public static string path = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "/ContactsApp/";
+       
+        /// <summary>
         /// Имя файла для сериализации/десериализации данных проекта.
         /// Путь для сериализации/десериализации данных проекта.
         /// </summary>
         private const string FileName = "ContactsApp.notes";
 
-        /// <summary>
-        /// Путь до папки сохранения.
-        /// </summary>
-        public static string path = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "/ContactsApp/";
+        
 
         /// <summary>
         /// Метод сериализации данных проекта.
