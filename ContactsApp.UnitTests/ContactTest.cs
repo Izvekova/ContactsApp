@@ -12,73 +12,35 @@ namespace ContactsApp.UnitTests
     public class ContactTest
     {
         [Test]
-        public void Surname_GoodSurname_ReturnsSameSurname()
+        public void Name_CorrectName_ReturnsSameName()
         {
             //Setup
             var contact = new Contact();
-            var sourceSurname = "Пчелкин";
-            var expectedName = sourceSurname;
+            var sourceName = "Contact1";
+            var expectedName = sourceName;
 
             //Act
-            contact.Surname = sourceSurname;
-            var actualSurname = contact.Surname;
+            contact.Name = sourceName;
+            var actualName = contact.Name;
 
             //Assert
-            Assert.AreEqual(expectedName, actualSurname);
+            Assert.AreEqual(expectedName, actualName);
         }
 
         [Test]
-        public void Surname_TooLongSurname_ThrowsException()
+        public void Name_LowCaseName_ReturnsUpperCaseName()
         {
             //Setup
             var contact = new Contact();
-            var sourceSurname = "123456789012345678901234567890123456789012345678901";
+            var sourceName = "имя";
+            var expectedName = "Имя";
+
+            //Act
+            contact.Name = sourceName;
+            var actualName = contact.Name;
 
             //Assert
-            Assert.Throws<ArgumentException>
-            (
-                () =>
-                {
-                    //Act
-                    contact.Surname = sourceSurname;
-                }
-            );
-        }
-
-        [Test]
-        public void Surname_EmptySurname_ThrowsException()
-        {
-            //Setup
-            var contact = new Contact();
-            var sourceSurname = "";
-
-            //Assert
-            Assert.Throws<ArgumentException>
-            (
-                () =>
-                {
-                    //Act
-                    contact.Surname = sourceSurname;
-                }
-            );
-        }
-
-        [Test]
-        public void Name_TooLongName_ThrowsException()
-        {
-            //Setup
-            var contact = new Contact();
-            var sourceName = "123456789012345678901234567890123456789012345678901";
-
-            //Assert
-            Assert.Throws<ArgumentException>
-            (
-                () =>
-                {
-                    //Act
-                    contact.Name = sourceName;
-                }
-            );
+            Assert.AreEqual(expectedName, actualName);
         }
 
         [Test]
@@ -90,8 +52,9 @@ namespace ContactsApp.UnitTests
 
             //Assert
             Assert.Throws<ArgumentException>
-            (
+                (
                 () =>
+
                 {
                     //Act
                     contact.Name = sourceName;
@@ -99,42 +62,109 @@ namespace ContactsApp.UnitTests
             );
         }
 
-       
-
         [Test]
-        public void Birthday_FutureBadBirthday_ThrowsException()
+        public void Name_TooLongName_ThrowsException()
         {
             //Setup
             var contact = new Contact();
-            var badDay = new DateTime(2100, 12, 8);
+            var sourceName = "Contact Contact Contact Contact Contact Contact Contact Contact";
 
             //Assert
             Assert.Throws<ArgumentException>
             (
                 () =>
+
                 {
                     //Act
-                    contact.Birthday = badDay;
+                    contact.Name = sourceName;
                 }
             );
         }
 
         [Test]
-        public void Birthday_PastBadBirthday_ThrowsException()
+        public void Surname_CorrectSurname_ReturnsSameSurname()
         {
             //Setup
             var contact = new Contact();
-            var badDay = new DateTime(1800, 12, 8);
+            var sourceSurname = "Contact1";
+            var expectedSurname = sourceSurname;
+
+            //Act
+            contact.Surname = sourceSurname;
+            var actualSurname = contact.Surname;
+
+            //Assert
+            Assert.AreEqual(expectedSurname, actualSurname);
+        }
+
+        [Test]
+        public void Surname_LowCaseName_ReturnsUpperCaseSurname()
+        {
+            //Setup
+            var contact = new Contact();
+            var sourceSurname = "фамилия";
+            var expectedSurname = "Фамилия";
+
+            //Act
+            contact.Surname = sourceSurname;
+            var actualName = contact.Surname;
+
+            //Assert
+            Assert.AreEqual(expectedSurname, actualName);
+        }
+
+        [Test]
+        public void Surname_EmprtyName_ThrowsException()
+        {
+            //Setup
+            var contact = new Contact();
+            var sourceSurname = "";
 
             //Assert
             Assert.Throws<ArgumentException>
             (
                 () =>
+
                 {
                     //Act
-                    contact.Birthday = badDay;
+                    contact.Surname = sourceSurname;
                 }
             );
+        }
+
+        [Test]
+        public void Surname_TooLongSurname_ThrowsException()
+        {
+            //Setup
+            var contact = new Contact();
+            var sourceSurname = "Contact Contact Contact Contact Contact Contact Contact Contact";
+
+            //Assert
+            Assert.Throws<ArgumentException>
+            (
+                () =>
+
+                {
+                    //Act
+                    contact.Surname = sourceSurname;
+                }
+            );
+        }
+
+        [Test]
+        public void Email_CorrectEmail_ReturnSameEmail()
+        {
+            //Setup
+            var contact = new Contact();
+            var sourceEmail = "email@mail.com";
+            var expectedEmail = sourceEmail;
+
+            //Act
+            contact.Email = sourceEmail;
+            var actualEmail = contact.Email;
+
+            //Assert
+            Assert.AreEqual(expectedEmail, actualEmail);
         }
 
         [Test]
@@ -142,39 +172,89 @@ namespace ContactsApp.UnitTests
         {
             //Setup
             var contact = new Contact();
-            var sourceEmail = "123456789012345678901234567890123456789012345678901@gmail.com";
+            var sourceEmail = "Email Email Email Email Email Email Email Email Email Email Email Email";
 
             //Assert
             Assert.Throws<ArgumentException>
             (
                 () =>
+
                 {
                     //Act
                     contact.Email = sourceEmail;
                 }
             );
-
         }
 
         [Test]
-        public void IdVkontakte_TooLongIdVkontakte_ThrowsException()
+        public void IdVk_CorrectIdVk_ReturnSameIdVk()
         {
             //Setup
             var contact = new Contact();
-            var sourceIdVk = "qwertyqwertyqwertyqwerty";
+            var sourceIdVk = "email@mail.com";
+            var expectedIdVk = sourceIdVk;
+
+            //Act
+            contact.IdVk = sourceIdVk;
+            var actualIdVk = contact.IdVk;
+
+            //Assert
+            Assert.AreEqual(expectedIdVk, actualIdVk);
+        }
+
+        [Test]
+        public void IdVk_TooLongIdVk_ThrowsException()
+        {
+            //Setup
+            var contact = new Contact();
+            var sourceIdVk = "IdVk IdVk IdVk IdVk IdVk IdVk IdVk";
 
             //Assert
             Assert.Throws<ArgumentException>
             (
                 () =>
+
                 {
                     //Act
                     contact.IdVk = sourceIdVk;
                 }
             );
-
         }
 
+        [Test]
+        public void Birthday_CorrectBirthday_ReturnSameBirthday()
+        {
+            //Setup
+            var contact = new Contact();
+            var sourceBirthday = new DateTime(2000, 1, 1);
+            var expectedBirthday = sourceBirthday;
+
+            //Act
+            contact.Birthday = sourceBirthday;
+            var actualBirthday = contact.Birthday;
+
+            //Assert
+            Assert.AreEqual(expectedBirthday, actualBirthday);
+        }
+
+        [Test]
+        public void Birthday_TooSmallBirthday_ThrowsException()
+        {
+            //Setup
+            var contact = new Contact();
+            var sourceBirthday = new DateTime(1800, 1, 1);
+
+            //Assert
+            Assert.Throws<ArgumentException>
+            (
+                () =>
+
+                {
+                    //Act
+                    contact.Birthday = sourceBirthday;
+                }
+            );
+        }
         [Test]
         public void CloneContact_Correctly()
         {
