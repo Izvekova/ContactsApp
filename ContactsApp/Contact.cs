@@ -186,6 +186,27 @@ namespace ContactsApp
                     PhoneNumber = phoneNumber
                 };
             }
+
+        /// <summary>
+        /// Метод, сравнивающий два объекта
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public override bool Equals(object obj)
+        {
+            var toCompareWith = obj as Contact;
+            if (toCompareWith == null)
+            {
+                return false;
+            }
+
+            return Name == toCompareWith.Name &&
+            Surname == toCompareWith.Surname &&
+            PhoneNumber.Number == toCompareWith.PhoneNumber.Number &&
+            IdVk == toCompareWith.IdVk &&
+            Email == toCompareWith.Email &&
+            Birthday == toCompareWith.Birthday;
         }
+    }
     
 }

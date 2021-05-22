@@ -45,7 +45,9 @@ namespace ContactsApp.UnitTests
             );
             return sourceProject;
         }
-
+        /// <summary>
+        /// Тест на сериализацию 
+        /// </summary>
         [Test]
         public void SaveToFile_CorrectProject_FileSavedCorrectly()
         {
@@ -54,8 +56,8 @@ namespace ContactsApp.UnitTests
 
             var location = Assembly.GetExecutingAssembly().Location;
             var testDataFolder = Path.GetDirectoryName(location) + @"\TestData";
-            var actualFilename = testDataFolder + @"ContactsApp.notes";
-            var expectedFilename = testDataFolder + @"\expectedProject.notes";
+            var actualFilename = testDataFolder + @"\ContactsApp.json";
+            var expectedFilename = testDataFolder + @"\ExpectedProject.json";
             if (File.Exists(actualFilename))
             {
                 File.Delete(actualFilename);
@@ -70,58 +72,40 @@ namespace ContactsApp.UnitTests
             Assert.AreEqual(expectedFileContent, actualFileContent);
         }
 
-
+        /// <summary>
+        /// Правильная загрузка
+        /// </summary>
         [Test]
         public void LoadToFile_CorrectProject_FileLoadCorrectly()
         {
             //Setup
-            var sourceProject = PrepareProject();
+            var expectedProject = PrepareProject();
 
             var location = Assembly.GetExecutingAssembly().Location;
             var testDataFolder = Path.GetDirectoryName(location) + @"\TestData\";
 
             //Act
-            var actualFilename = ProjectManager.LoadFromFile(testDataFolder);
+            var actualProject = ProjectManager.LoadFromFile(testDataFolder);
 
             //Assert
-            Assert.Multiple(() =>
-            {
-                Assert.AreEqual(sourceProject.Contacts.Count, actualFilename.Contacts.Count);
-                for (int i = 0; i != sourceProject.Contacts.Count; i++)
-                {
-                    Assert.AreEqual(sourceProject.Contacts[i].Surname, actualFilename.Contacts[i].Surname);
-                    Assert.AreEqual(sourceProject.Contacts[i].Name, actualFilename.Contacts[i].Name);
-                    Assert.AreEqual(sourceProject.Contacts[i].Birthday, actualFilename.Contacts[i].Birthday);
-                    Assert.AreEqual(sourceProject.Contacts[i].PhoneNumber.Number, actualFilename.Contacts[i].PhoneNumber.Number);
-                    Assert.AreEqual(sourceProject.Contacts[i].IdVk, actualFilename.Contacts[i].IdVk);
-                    Assert.AreEqual(sourceProject.Contacts[i].Email, actualFilename.Contacts[i].Email);
-                }
-            });
+            Assert.AreEqual(expectedProject.Contacts, actualProject.Contacts);
         }
 
+        /// <summary>
+        /// Когда неправильный файл (путь), возвращаем пустой проджект
+        /// </summary>
         [Test]
-        public void LoadToFile_ExistFile_LoadCorrectly()
+        public void LoadFromFile_UnCorrectFile_ReturnEmptyProject()
         {
             //Setup
-
             var location = Assembly.GetExecutingAssembly().Location;
-            var testDataFolder = Path.GetDirectoryName(location) + @"\TestData\";
-            var expectedFilename = testDataFolder + "\\ContactsApp.notes";
+            var testDataFolder = Path.GetDirectoryName(location) + @"\wrong\";
 
             //Act
-            var actualFilename = ProjectManager.LoadFromFile(expectedFilename);
+            var actualProject = ProjectManager.LoadFromFile(testDataFolder);
 
             //Assert
-            Assert.IsNotNull(actualFilename);
-
-        }
-
-        [Test]
-        public void LoadToFile_EmptyFile_CreateNewProject()
-        {
-            var location = Assembly.GetExecutingAssembly().Location;
-            var testDataFolder = Path.GetDirectoryName(location) + @"\TestData\EmptyFile\";
-            ProjectManager.LoadFromFile(testDataFolder);
+            Assert.IsEmpty(actualProject.Contacts);
         }
     }
 }

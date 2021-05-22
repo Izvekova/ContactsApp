@@ -23,7 +23,7 @@ namespace ContactsApp
         /// Имя файла для сериализации/десериализации данных проекта.
         /// Путь для сериализации/десериализации данных проекта.
         /// </summary>
-        private const string FileName = "ContactsApp.notes";
+        private const string FileName = @"\ContactsApp.json";
 
         
 

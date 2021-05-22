@@ -259,28 +259,21 @@ namespace ContactsApp.UnitTests
         public void CloneContact_Correctly()
         {
             //Setup
-            Contact sourceContact;
-            sourceContact = new Contact();
-            sourceContact.PhoneNumber.Number = 71122334455;
-            sourceContact.Birthday = new DateTime(2020, 12, 8);
-            sourceContact.Email = "123@gmail.com";
-            sourceContact.IdVk = "qwerty";
-            sourceContact.Name = "Вася";
-            sourceContact.Surname = "Пупкин";
+            var sourceContact = new Contact
+            {
+                PhoneNumber = { Number = 71122334455 },
+                Birthday = new DateTime(2020, 12, 8),
+                Email = "123@gmail.com",
+                IdVk = "qwerty",
+                Name = "Вася",
+                Surname = "Пупкин"
+            };
 
             //Act
-            var exectedContact = (Contact)sourceContact.Clone();
+            var actualContact = (Contact)sourceContact.Clone();
 
             //Assert
-            Assert.Multiple(() =>
-            {
-                Assert.AreEqual(sourceContact.Surname, exectedContact.Surname);
-                Assert.AreEqual(sourceContact.Name, exectedContact.Name);
-                Assert.AreEqual(sourceContact.Birthday, exectedContact.Birthday);
-                Assert.AreEqual(sourceContact.PhoneNumber.Number, exectedContact.PhoneNumber.Number);
-                Assert.AreEqual(sourceContact.IdVk, exectedContact.IdVk);
-                Assert.AreEqual(sourceContact.Email, exectedContact.Email);
-            });
+            Assert.AreEqual(sourceContact, actualContact);
         }
     }
 }
