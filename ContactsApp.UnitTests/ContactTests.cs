@@ -9,7 +9,7 @@ using NUnit.Framework;
 namespace ContactsApp.UnitTests
 {
     [TestFixture]
-    public class ContactTest
+    public class ContactTests
     {
         [Test]
         public void Name_CorrectName_ReturnsSameName()

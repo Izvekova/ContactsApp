@@ -10,7 +10,7 @@ using NUnit.Framework;
 namespace ContactsApp.UnitTests
 {
     [TestFixture]
-    class ProjectManagerTest
+    class ProjectManagerTests
     {
         public Project PrepareProject()
         {
@@ -44,6 +44,30 @@ namespace ContactsApp.UnitTests
             }
             );
             return sourceProject;
+        }
+
+        [Test]
+        public void SaveToFile_CorrectProject_FileSavedCorrectly()
+        {
+            //Setup
+            var sourceProject = PrepareProject();
+
+            var location = Assembly.GetExecutingAssembly().Location;
+            var testDataFolder = Path.GetDirectoryName(location) + @"\TestData";
+            var actualFilename = testDataFolder + @"ContactsApp.notes";
+            var expectedFilename = testDataFolder + @"\expectedProject.notes";
+            if (File.Exists(actualFilename))
+            {
+                File.Delete(actualFilename);
+            }
+
+            //Act
+            ProjectManager.SaveToFile(sourceProject, testDataFolder);
+
+            //Assert
+            var actualFileContent = File.ReadAllText(actualFilename);
+            var expectedFileContent = File.ReadAllText(expectedFilename);
+            Assert.AreEqual(expectedFileContent, actualFileContent);
         }
 
 
