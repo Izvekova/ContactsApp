@@ -54,7 +54,7 @@ namespace ContactsAppUI
             | System.Windows.Forms.AnchorStyles.Right)));
             this.SurnameBox.Location = new System.Drawing.Point(70, 12);
             this.SurnameBox.Name = "SurnameBox";
-            this.SurnameBox.Size = new System.Drawing.Size(287, 20);
+            this.SurnameBox.Size = new System.Drawing.Size(305, 20);
             this.SurnameBox.TabIndex = 0;
             this.SurnameBox.TextChanged += new System.EventHandler(this.SurnameBox_TextChanged);
             // 
@@ -64,7 +64,7 @@ namespace ContactsAppUI
             | System.Windows.Forms.AnchorStyles.Right)));
             this.NameBox.Location = new System.Drawing.Point(70, 38);
             this.NameBox.Name = "NameBox";
-            this.NameBox.Size = new System.Drawing.Size(287, 20);
+            this.NameBox.Size = new System.Drawing.Size(305, 20);
             this.NameBox.TabIndex = 1;
             this.NameBox.TextChanged += new System.EventHandler(this.NameBox_TextChanged);
             // 
@@ -84,7 +84,7 @@ namespace ContactsAppUI
             | System.Windows.Forms.AnchorStyles.Right)));
             this.EmailBox.Location = new System.Drawing.Point(70, 116);
             this.EmailBox.Name = "EmailBox";
-            this.EmailBox.Size = new System.Drawing.Size(287, 20);
+            this.EmailBox.Size = new System.Drawing.Size(305, 20);
             this.EmailBox.TabIndex = 4;
             this.EmailBox.TextChanged += new System.EventHandler(this.EmailBox_TextChanged);
             // 
@@ -94,16 +94,15 @@ namespace ContactsAppUI
             | System.Windows.Forms.AnchorStyles.Right)));
             this.vkBox.Location = new System.Drawing.Point(70, 142);
             this.vkBox.Name = "vkBox";
-            this.vkBox.Size = new System.Drawing.Size(287, 20);
+            this.vkBox.Size = new System.Drawing.Size(305, 20);
             this.vkBox.TabIndex = 5;
             this.vkBox.Text = "id";
             this.vkBox.TextChanged += new System.EventHandler(this.vkBox_TextChanged);
-
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 16);
+            this.label1.Location = new System.Drawing.Point(12, 12);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(52, 13);
             this.label1.TabIndex = 6;
@@ -112,7 +111,7 @@ namespace ContactsAppUI
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(26, 41);
+            this.label2.Location = new System.Drawing.Point(26, 38);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(38, 13);
             this.label2.TabIndex = 7;
@@ -121,7 +120,7 @@ namespace ContactsAppUI
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(16, 66);
+            this.label3.Location = new System.Drawing.Point(16, 64);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(48, 13);
             this.label3.TabIndex = 8;
@@ -130,7 +129,7 @@ namespace ContactsAppUI
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(23, 93);
+            this.label4.Location = new System.Drawing.Point(23, 90);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(41, 13);
             this.label4.TabIndex = 9;
@@ -139,7 +138,7 @@ namespace ContactsAppUI
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(23, 120);
+            this.label5.Location = new System.Drawing.Point(25, 116);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(39, 13);
             this.label5.TabIndex = 10;
@@ -148,7 +147,7 @@ namespace ContactsAppUI
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(19, 147);
+            this.label6.Location = new System.Drawing.Point(19, 142);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(45, 13);
             this.label6.TabIndex = 11;
@@ -180,15 +179,14 @@ namespace ContactsAppUI
             // 
             this.PhoneBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.PhoneBox.Location = new System.Drawing.Point(72, 92);
+            this.PhoneBox.Location = new System.Drawing.Point(70, 90);
             this.PhoneBox.MaxLength = 30;
             this.PhoneBox.Name = "PhoneBox";
             this.PhoneBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.PhoneBox.Size = new System.Drawing.Size(286, 20);
+            this.PhoneBox.Size = new System.Drawing.Size(305, 20);
             this.PhoneBox.TabIndex = 3;
             this.PhoneBox.Text = "7";
             this.PhoneBox.TextChanged += new System.EventHandler(this.PhoneBox_TextChanged);
-            
             // 
             // ContactsForm
             // 

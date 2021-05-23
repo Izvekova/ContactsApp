@@ -70,7 +70,7 @@ namespace ContactsAppUI
             // 
             this.SurnameBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.SurnameBox.Location = new System.Drawing.Point(348, 12);
+            this.SurnameBox.Location = new System.Drawing.Point(348, 26);
             this.SurnameBox.Name = "SurnameBox";
             this.SurnameBox.ReadOnly = true;
             this.SurnameBox.Size = new System.Drawing.Size(308, 20);
@@ -81,7 +81,7 @@ namespace ContactsAppUI
             // 
             this.NameBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.NameBox.Location = new System.Drawing.Point(348, 38);
+            this.NameBox.Location = new System.Drawing.Point(348, 52);
             this.NameBox.Name = "NameBox";
             this.NameBox.ReadOnly = true;
             this.NameBox.Size = new System.Drawing.Size(308, 20);
@@ -91,7 +91,7 @@ namespace ContactsAppUI
             // 
             this.EmailBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.EmailBox.Location = new System.Drawing.Point(348, 116);
+            this.EmailBox.Location = new System.Drawing.Point(348, 130);
             this.EmailBox.Name = "EmailBox";
             this.EmailBox.ReadOnly = true;
             this.EmailBox.Size = new System.Drawing.Size(308, 20);
@@ -100,7 +100,7 @@ namespace ContactsAppUI
             // Surname
             // 
             this.Surname.AutoSize = true;
-            this.Surname.Location = new System.Drawing.Point(290, 15);
+            this.Surname.Location = new System.Drawing.Point(290, 26);
             this.Surname.Name = "Surname";
             this.Surname.Size = new System.Drawing.Size(52, 13);
             this.Surname.TabIndex = 3;
@@ -109,7 +109,7 @@ namespace ContactsAppUI
             // NubmerName
             // 
             this.NubmerName.AutoSize = true;
-            this.NubmerName.Location = new System.Drawing.Point(304, 38);
+            this.NubmerName.Location = new System.Drawing.Point(304, 52);
             this.NubmerName.Name = "NubmerName";
             this.NubmerName.Size = new System.Drawing.Size(38, 13);
             this.NubmerName.TabIndex = 4;
@@ -118,7 +118,7 @@ namespace ContactsAppUI
             // EMail
             // 
             this.EMail.AutoSize = true;
-            this.EMail.Location = new System.Drawing.Point(303, 116);
+            this.EMail.Location = new System.Drawing.Point(303, 130);
             this.EMail.Name = "EMail";
             this.EMail.Size = new System.Drawing.Size(39, 13);
             this.EMail.TabIndex = 5;
@@ -127,7 +127,7 @@ namespace ContactsAppUI
             // BirthdayTimePicker
             // 
             this.BirthdayTimePicker.Enabled = false;
-            this.BirthdayTimePicker.Location = new System.Drawing.Point(348, 64);
+            this.BirthdayTimePicker.Location = new System.Drawing.Point(348, 78);
             this.BirthdayTimePicker.MaxDate = new System.DateTime(2021, 5, 31, 0, 0, 0, 0);
             this.BirthdayTimePicker.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
             this.BirthdayTimePicker.Name = "BirthdayTimePicker";
@@ -138,7 +138,7 @@ namespace ContactsAppUI
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(294, 64);
+            this.label1.Location = new System.Drawing.Point(294, 78);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(48, 13);
             this.label1.TabIndex = 7;
@@ -147,7 +147,7 @@ namespace ContactsAppUI
             // NamberPhone
             // 
             this.NamberPhone.AutoSize = true;
-            this.NamberPhone.Location = new System.Drawing.Point(301, 90);
+            this.NamberPhone.Location = new System.Drawing.Point(301, 104);
             this.NamberPhone.Name = "NamberPhone";
             this.NamberPhone.Size = new System.Drawing.Size(41, 13);
             this.NamberPhone.TabIndex = 9;
@@ -156,7 +156,7 @@ namespace ContactsAppUI
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(297, 142);
+            this.label2.Location = new System.Drawing.Point(297, 156);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(45, 13);
             this.label2.TabIndex = 10;
@@ -166,7 +166,7 @@ namespace ContactsAppUI
             // 
             this.vkBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.vkBox.Location = new System.Drawing.Point(348, 142);
+            this.vkBox.Location = new System.Drawing.Point(348, 156);
             this.vkBox.Name = "vkBox";
             this.vkBox.ReadOnly = true;
             this.vkBox.Size = new System.Drawing.Size(308, 20);
@@ -241,7 +241,7 @@ namespace ContactsAppUI
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 29);
+            this.label4.Location = new System.Drawing.Point(12, 26);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(30, 13);
             this.label4.TabIndex = 21;
@@ -362,7 +362,7 @@ namespace ContactsAppUI
             // 
             // PhoneMaskBox
             // 
-            this.PhoneMaskBox.Location = new System.Drawing.Point(348, 90);
+            this.PhoneMaskBox.Location = new System.Drawing.Point(348, 104);
             this.PhoneMaskBox.Mask = "+7 (000) 000-00-00";
             this.PhoneMaskBox.Name = "PhoneMaskBox";
             this.PhoneMaskBox.ReadOnly = true;
